@@ -1,0 +1,24 @@
+--Create a grocery store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, color TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO store VALUES (1, "jeans", "blue", 40.99, 100);
+INSERT INTO store VALUES (2, "jeans", "black", 40.99, 95);
+INSERT INTO store VALUES (3, "jeans", "ripped", 40.99, 70);
+INSERT INTO store VALUES (4, "jeans", "stacked", 40.99, 60);
+INSERT INTO store VALUES (5, "cargo pants", "khaki", 40.99, 50);
+INSERT INTO store VALUES (6, "cargo pants", "camo", 40.99, 90);
+INSERT INTO store VALUES (7, "cargo pants", "black", 40.99, 10);
+INSERT INTO store VALUES (8, "t-shirt", "white", 20.99, 15);
+INSERT INTO store VALUES (9, "t-shirt", "black", 20.99, 1);
+INSERT INTO store VALUES (10, "t-shirt", "graphic", 40.99, 78);
+INSERT INTO store VALUES (12, "hat", "blue", 35.99, 45);
+INSERT INTO store VALUES (13, "hat", "black", 35.99, 35);
+INSERT INTO store VALUES (14, "socks", "white", 10.99, 20);
+INSERT INTO store VALUES (15, "socks", "striped", 10.99, 10);
+
+--display the database ordered by price.
+SELECT * FROM store ORDER BY price desc;
+
+--what is the total quantity of jeans available?
+SELECT SUM (quantity) FROM store WHERE item = "jeans";
