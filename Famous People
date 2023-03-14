@@ -1,0 +1,42 @@
+/*Make table with small set of “famous people”, then make another table about things they do and join 
+those to create nice human readable lists*/
+
+CREATE TABLE singers (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ artistname TEXT,
+ age INTEGER,
+ nationality TEXT);
+ 
+INSERT INTO singers (artistname, age, nationality) VALUES ("Ella Mai", 29, "UK");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Burna Boy", 31, "Nigeria");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Bilie Eilish", 22, "US");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Lil Nas X", 26, "US");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Justin Bieber", 27, "US");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Megan Thee Stallion", 28, "US");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Tems", 28, "Nigeria");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Rihanna", 32, "Barbados");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Latto", 23, "US");
+INSERT INTO singers (artistname, age, nationality) VALUES ("Drake", 32, "Canada");
+
+CREATE TABLE songs (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ artist_id INTEGER,
+ songname TEXT,
+ genre TEXT);
+ 
+INSERT INTO songs (artist_id, songname, genre) VALUES (1, "Boo'd Up", "R&B");
+INSERT INTO songs (artist_id, songname, genre) VALUES (2, "Last Last", "Afrobeat");
+INSERT INTO songs (artist_id, songname, genre) VALUES (3, "Bad Guy", "Pop");
+INSERT INTO songs (artist_id, songname, genre) VALUES (4, "Oldtown Road", "Pop");
+INSERT INTO songs (artist_id, songname, genre) VALUES (5, "Peaches", "R&B");
+INSERT INTO songs (artist_id, songname, genre) VALUES (6, "Savage", "Hip-Hop");
+INSERT INTO songs (artist_id, songname, genre) VALUES (7, "Free Mind", "Afrobeat");
+INSERT INTO songs (artist_id, songname, genre) VALUES (8, "Diamond", "Pop");
+INSERT INTO songs (artist_id, songname, genre) VALUES (9, "Big Energy", "Hip-Hop");
+INSERT INTO songs (artist_id, songname, genre) VALUES (10, "Rich Flex", "Hip-Hop");
+
+/*Return song that artist wrote*/
+SELECT singers.artistname, songs.songname
+FROM singers
+JOIN songs
+ON singers.id=songs.artist_id;
